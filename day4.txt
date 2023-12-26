@@ -19,7 +19,7 @@ odd([1,2,3,4,5,6,7]);
 
 **IIFE**
 
- function odd(num) {
+ (function odd(num) {
     var arrayresult = [];
     for (i=0; i<num.length; i++) {
         if (num[i] % 2 != 0) {
@@ -27,8 +27,7 @@ odd([1,2,3,4,5,6,7]);
         }
     }
     console.log(arrayresult);
-}
-odd([1,2,3,4,5,6,7]);
+})([1,2,3,4,5,6,7]);
 
 **ARROW FUNCTION**
 
@@ -65,15 +64,14 @@ console.log(result);
 
 **IIFE**
 
-function titleCaps(arr) {
+let titleCaps=(function(arr) {
 	arr = arr.toLowerCase().split(' ');
 	for (let i = 0; i < arr.length; i++) {
 		arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
 	}
 	return arr.join(' ');
-}
-let result=titleCaps("grab your vernacular imprint")
-console.log(result);
+})("grab your vernacular imprint")
+console.log(titleCaps);
 
 **ARROW FUNCTION**
 
@@ -109,14 +107,13 @@ sum([1,2,3,4,5]);
 
 **IIFE**
 
-function sum(arr){
+(function sum(arr){
     var result=0;
     for(i=0;i<arr.length;i++){
         result+=arr[i];
     }
     console.log(result);
-}
-sum([1,2,3,4,5]);
+})([1,2,3,4,5]);
 
 **ARROW FUNCTION**
 
@@ -157,7 +154,7 @@ const result = (function(array) {
 
 **IIFE**
 
-function r(array) {
+let  result=(function(array) {
     function primeNumber(number) {
       if (number <= 1) return false;
       for (let i = 2; i <= Math.sqrt(number); i++) {
@@ -167,8 +164,7 @@ function r(array) {
     }
   
     return array.filter((number) => primeNumber(number));
-  }
-  let result=r([-1,-2,1, 2, 3, 4, 5, 6, 7]);
+  })([-1,-2,1, 2, 3, 4, 5, 6, 7]);
   
   console.log(result);
 
@@ -213,7 +209,7 @@ f(["mom","madam","sir","refer","pop","dad"]);
 
 **IIFE**
 
-function f(a){
+(function f(a){
 let arrresult=[];
 for(i=0;i<a.length;i++){
  let result= a[i].split("").reverse().join("");
@@ -222,8 +218,7 @@ if (a[i]==result){
 }
 }
 console.log(arrresult);
-}
-f(["mom","madam","sir","refer","pop","dad"]);
+})(["mom","madam","sir","refer","pop","dad"]);
 
 **ARROW FUNCTION**
 
@@ -264,13 +259,13 @@ result(a,b);
 
 **IIFE**
 
-function result(arr1,arr2){
+let result=(function(arr1,arr2){
 let addArr = arr1.concat(arr2); 
 let sort=addArr.sort();
 let halfLength=sort.length/2;
 result=(sort[halfLength-1]+sort[halfLength])/2;
 console.log(result);
-}
+})
 let a = [11, 21, 71, 51];
 let b = [41, 61, 19, 81];
 result(a,b);
@@ -315,7 +310,7 @@ let removeDuplicates = function (arr) {
 
 **IIFE**
 
-function removeDuplicates(arr) {
+let removeDuplicates=(function(arr) {
     const result = [];
     for (const value of arr) {
       if (!result.includes(value)) {
@@ -323,11 +318,9 @@ function removeDuplicates(arr) {
       }
     }
     return result;
-  }
-  
-  const arr = [1,9,6,8,6,3,1];
-  const resultArray = removeDuplicates(arr);
-  console.log(resultArray);
+  })([1,9,6,8,6,3,1]);
+  console.log(removeDuplicates);
+
 
 **ARROW FUNCTION**
 
@@ -369,17 +362,15 @@ let rotateArray=function (arr, k) {
 
 **IIFE**
 
-function rotateArray(arr, k) {
+let rotateArray=(function(arr, k) {
     const n = arr.length;
     k = k % n; 
     const rotatedPart = arr.splice(n - k);
     arr.unshift(...rotatedPart); 
     return arr;
-  }
-  const arr = [1, 2, 3, 4, 5];
-  const rotate = 3; 
-  const result = rotateArray(arr, rotate);
-  console.log(result);
+  })([1, 2, 3, 4, 5], 3);
+  console.log(rotateArray);
+
 
 **ARROW FUNCTION**
 
